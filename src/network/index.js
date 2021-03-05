@@ -14,6 +14,7 @@ async function request({
     method = 'GET',
     params = null,
     data = null,
+    options = Object.create(null),
 } = Object.create(null)) {
 
     // auth
@@ -22,7 +23,12 @@ async function request({
     //     return handleUserAuthLogin();
     // }
 
-    const [error, response] = await call({ url, method, params, data, });
+    const [error, response] = await call({
+        url,
+        method,
+        params,
+        data,
+    }, options);
 
     if (!!error) {
         return handleRequestError(error)

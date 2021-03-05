@@ -7,21 +7,22 @@ async function call({
     url,
     params,
     data,
-}, options = null) {
+}, options) {
     // set auth header by options
     // ...
 
     const r = await axios({
+        baseURL: 'http://127.0.0.1:3000',
         method,
         url,
         params,
         data,
-        baseURL: 'http://127.0.0.1:3000',
+        ...options
     })
         .then((data) => [null, data])
         .catch((error) => [error, null])
 
-    console.log('api返回结果 => ', r)
+    console.log(`URL[${url}] response =>`, r);
 
     const [error, response] = r;
 
