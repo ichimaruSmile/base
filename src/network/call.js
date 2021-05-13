@@ -22,7 +22,7 @@ async function call({
         .then((data) => [null, data])
         .catch((error) => [error, null])
 
-    console.log(`URL[${url}] response =>`, r);
+    // console.log(`URL[${url}] response =>`, r);
 
     const [error, response] = r;
 
